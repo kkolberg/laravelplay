@@ -18,3 +18,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::resource('cars', 'CarController');
+
+Route::post('eligiblecars','EligibleCarController@filter');
+
+Route::get('carrules','CarRuleController@index');
+Route::get('carrules/{carId}/{ruleid}', 'CarRuleController@show');
+Route::post('carrules', 'CarRuleController@store');
+Route::put('carrules/{carId}/{ruleid}', 'CarRuleController@update');
